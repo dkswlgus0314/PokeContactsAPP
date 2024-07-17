@@ -15,6 +15,14 @@
 		5F7278372C4616230033B94E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5F7278362C4616230033B94E /* Base */; };
 		5F7278402C46191E0033B94E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F72783F2C46191E0033B94E /* SnapKit */; };
 		5F7278432C4619320033B94E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5F7278422C4619320033B94E /* Alamofire */; };
+		5F7278452C46407C0033B94E /* PhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278442C46407C0033B94E /* PhoneBookView.swift */; };
+		5F7278472C4640DF0033B94E /* UpdatePhoneBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278462C4640DF0033B94E /* UpdatePhoneBookView.swift */; };
+		5F7278492C4640FB0033B94E /* PhonBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278482C4640FB0033B94E /* PhonBookTableViewCell.swift */; };
+		5F72784D2C4644780033B94E /* PhoneBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F72784C2C4644780033B94E /* PhoneBookViewController.swift */; };
+		5F72784F2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F72784E2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift */; };
+		5F7278522C4645270033B94E /* pokeDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278512C4645270033B94E /* pokeDatas.swift */; };
+		5F7278552C4646250033B94E /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */; };
+		5F7278562C4646250033B94E /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		5F7278332C4616230033B94E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F7278362C4616230033B94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F7278382C4616230033B94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F7278442C46407C0033B94E /* PhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookView.swift; sourceTree = "<group>"; };
+		5F7278462C4640DF0033B94E /* UpdatePhoneBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhoneBookView.swift; sourceTree = "<group>"; };
+		5F7278482C4640FB0033B94E /* PhonBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonBookTableViewCell.swift; sourceTree = "<group>"; };
+		5F72784C2C4644780033B94E /* PhoneBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookViewController.swift; sourceTree = "<group>"; };
+		5F72784E2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhoneBookViewCotroller.swift; sourceTree = "<group>"; };
+		5F7278512C4645270033B94E /* pokeDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeDatas.swift; sourceTree = "<group>"; };
+		5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,9 @@
 		5F7278292C4616220033B94E /* PokeContacts */ = {
 			isa = PBXGroup;
 			children = (
+				5F7278502C4645020033B94E /* Model */,
+				5F72784A2C4641330033B94E /* View */,
+				5F72784B2C4644520033B94E /* Controller */,
 				5F72782A2C4616220033B94E /* AppDelegate.swift */,
 				5F72782C2C4616220033B94E /* SceneDelegate.swift */,
 				5F72782E2C4616220033B94E /* ViewController.swift */,
@@ -69,6 +88,35 @@
 				5F7278302C4616220033B94E /* PokeContacts.xcdatamodeld */,
 			);
 			path = PokeContacts;
+			sourceTree = "<group>";
+		};
+		5F72784A2C4641330033B94E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F7278442C46407C0033B94E /* PhoneBookView.swift */,
+				5F7278462C4640DF0033B94E /* UpdatePhoneBookView.swift */,
+				5F7278482C4640FB0033B94E /* PhonBookTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F72784B2C4644520033B94E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5F72784C2C4644780033B94E /* PhoneBookViewController.swift */,
+				5F72784E2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F7278502C4645020033B94E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */,
+				5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */,
+				5F7278512C4645270033B94E /* pokeDatas.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +198,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F72782F2C4616220033B94E /* ViewController.swift in Sources */,
+				5F7278472C4640DF0033B94E /* UpdatePhoneBookView.swift in Sources */,
 				5F72782B2C4616220033B94E /* AppDelegate.swift in Sources */,
+				5F7278492C4640FB0033B94E /* PhonBookTableViewCell.swift in Sources */,
+				5F72784D2C4644780033B94E /* PhoneBookViewController.swift in Sources */,
+				5F7278522C4645270033B94E /* pokeDatas.swift in Sources */,
+				5F72784F2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift in Sources */,
+				5F7278552C4646250033B94E /* Entity+CoreDataClass.swift in Sources */,
+				5F7278562C4646250033B94E /* Entity+CoreDataProperties.swift in Sources */,
+				5F7278452C46407C0033B94E /* PhoneBookView.swift in Sources */,
 				5F72782D2C4616220033B94E /* SceneDelegate.swift in Sources */,
 				5F7278322C4616220033B94E /* PokeContacts.xcdatamodeld in Sources */,
 			);
