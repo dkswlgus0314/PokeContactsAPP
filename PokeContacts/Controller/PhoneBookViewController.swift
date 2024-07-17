@@ -4,6 +4,7 @@ import UIKit
 class PhoneBookViewController: UIViewController {
     
     var phoneBookView: PhoneBookView!
+
     
     //네비게이션바 - "추가" 버튼
     lazy var righButton: UIBarButtonItem = {
@@ -29,6 +30,8 @@ class PhoneBookViewController: UIViewController {
         //테이블뷰 델리게이트
         phoneBookView.tableView.delegate = self
         phoneBookView.tableView.dataSource = self
+        
+
         
     }
     
@@ -56,3 +59,6 @@ extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+
+
