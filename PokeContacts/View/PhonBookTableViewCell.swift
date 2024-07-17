@@ -16,7 +16,7 @@ class PhonBookTableViewCell: UITableViewCell {
         image.layer.borderColor = UIColor.gray.cgColor
         image.contentMode = .scaleAspectFit
         image.layer.borderWidth = 1
-        image.layer.cornerRadius = 35
+        image.layer.cornerRadius = 30
         return image
     }()
     
@@ -53,7 +53,7 @@ class PhonBookTableViewCell: UITableViewCell {
         
         image.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(20)
-            $0.width.height.equalTo(70)
+            $0.width.height.equalTo(60)
             $0.centerY.equalToSuperview()
         }
         name.snp.makeConstraints {

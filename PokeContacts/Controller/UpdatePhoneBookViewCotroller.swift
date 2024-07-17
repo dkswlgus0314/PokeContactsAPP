@@ -8,22 +8,17 @@
 import UIKit
 
 class UpdatePhoneBookViewCotroller: UIViewController {
-
+    var updatePhoneBookView: UpdatePhoneBookView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "연락처 추가 " //수정할 때는 연락처 수정으로 바껴야됨.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func loadView() {
+        updatePhoneBookView = UpdatePhoneBookView(frame: UIScreen.main.bounds)
+        self.view = updatePhoneBookView
     }
-    */
-
+    
 }
