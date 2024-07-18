@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 class PhoneBookView: UIView {
-    
+
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PhonBookTableViewCell.self, forCellReuseIdentifier: "PhoneBookTableViewCell")  //셀 등록

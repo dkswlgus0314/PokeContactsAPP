@@ -10,18 +10,18 @@ import Foundation
 import CoreData
 
 
-extension Entity {
+extension PhoneBook {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Entity> {
-        return NSFetchRequest<Entity>(entityName: "Entity")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PhoneBook> {
+        return NSFetchRequest<PhoneBook>(entityName: "PhoneBook")
     }
 
     @NSManaged public var name: String?
     @NSManaged public var phoneNumber: String?
-    @NSManaged public var image: String?
+    @NSManaged public var image: Data?
 
 }
 
-extension Entity : Identifiable {
+extension PhoneBook : Identifiable {
 
 }

@@ -11,7 +11,7 @@ import SnapKit
 class PhonBookTableViewCell: UITableViewCell {
     
     //프로필 이미지
-    private var image: UIImageView = {
+    var image: UIImageView = {
         let image = UIImageView()
         image.layer.borderColor = UIColor.gray.cgColor
         image.contentMode = .scaleAspectFit
@@ -21,7 +21,7 @@ class PhonBookTableViewCell: UITableViewCell {
     }()
     
     //프로필 이름
-    private var name: UILabel = {
+    var name: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.text = "피카츄"
@@ -29,7 +29,7 @@ class PhonBookTableViewCell: UITableViewCell {
     }()
     
     //전화번호
-    private var phoneNumber: UILabel = {
+    var phoneNumber: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.text = "010-0000-0000"
