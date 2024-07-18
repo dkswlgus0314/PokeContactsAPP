@@ -23,6 +23,7 @@
 		5F7278522C4645270033B94E /* pokeDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278512C4645270033B94E /* pokeDatas.swift */; };
 		5F7278552C4646250033B94E /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */; };
 		5F7278562C4646250033B94E /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */; };
+		5F72785A2C48DC0C0033B94E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7278592C48DC0C0033B94E /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5F7278512C4645270033B94E /* pokeDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeDatas.swift; sourceTree = "<group>"; };
 		5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F7278592C48DC0C0033B94E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				5F7278532C4646250033B94E /* Entity+CoreDataClass.swift */,
 				5F7278542C4646250033B94E /* Entity+CoreDataProperties.swift */,
+				5F7278592C48DC0C0033B94E /* CoreDataManager.swift */,
 				5F7278512C4645270033B94E /* pokeDatas.swift */,
 			);
 			path = Model;
@@ -204,6 +207,7 @@
 				5F72784D2C4644780033B94E /* PhoneBookViewController.swift in Sources */,
 				5F7278522C4645270033B94E /* pokeDatas.swift in Sources */,
 				5F72784F2C4644B10033B94E /* UpdatePhoneBookViewCotroller.swift in Sources */,
+				5F72785A2C48DC0C0033B94E /* CoreDataManager.swift in Sources */,
 				5F7278552C4646250033B94E /* Entity+CoreDataClass.swift in Sources */,
 				5F7278562C4646250033B94E /* Entity+CoreDataProperties.swift in Sources */,
 				5F7278452C46407C0033B94E /* PhoneBookView.swift in Sources */,

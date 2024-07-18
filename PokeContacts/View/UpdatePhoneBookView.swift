@@ -11,7 +11,7 @@ import SnapKit
 class UpdatePhoneBookView: UIView {
     
     let updatePhoneBookViewCotroller = UpdatePhoneBookViewCotroller()
-    
+    var phoneBookViewController: PhoneBookViewController?
     
     var profileImage: UIImageView = {
         let image = UIImageView()
@@ -29,7 +29,7 @@ class UpdatePhoneBookView: UIView {
         button.layer.cornerRadius = 20
         return button
     }()
-    lazy var inputName: UITextView = {
+    var inputName: UITextView = {
         let textView = UITextView()
         textView.textColor = .systemGray4
         textView.font = .systemFont(ofSize: 16)
@@ -43,7 +43,7 @@ class UpdatePhoneBookView: UIView {
         textView.layer.cornerRadius = 8.0
         return textView
     }()
-    private var inputPhoneNumber: UITextView = {
+    var inputPhoneNumber: UITextView = {
         let textView = UITextView()
         textView.textColor = .systemGray4
         textView.font = .systemFont(ofSize: 16)

@@ -1,12 +1,15 @@
 
 import UIKit
+import CoreData
 
 class UpdatePhoneBookViewCotroller: UIViewController {
     var updatePhoneBookView: UpdatePhoneBookView!
+    var phoneBookViewController: PhoneBookViewController? //변수가 nil일 수 있음
+    let coreDataManager = CoreDataManager()
     
     //네비게이션바 - "적용" 버튼
-    lazy var righButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "적용", style: .plain, target: self, action: #selector(righButtonTapped))
+    lazy var saveButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "적용", style: .plain, target: self, action: #selector(saveButtonTapped))
         return button
     }()
     
@@ -20,7 +23,7 @@ class UpdatePhoneBookViewCotroller: UIViewController {
         super.viewDidLoad()
         //네비게이션바 설정
         title = "연락처 추가"
-        navigationItem.rightBarButtonItem = righButton
+        navigationItem.rightBarButtonItem = saveButton
         
         updatePhoneBookView.randomImageButton.addTarget(self, action: #selector(randomImageButtonTapped), for: .touchDown)
     }
@@ -81,15 +84,22 @@ class UpdatePhoneBookViewCotroller: UIViewController {
     
     
     //MARK: - @objc 메서드
-    //"추가" 버튼 액션
-    @objc
-    private func righButtonTapped(){
-        // 다음 뷰컨트롤러로 이동
-        self.navigationController?.popViewController(animated: true)
-    }
-    
+    //"랜덤 이미지 생성" 버튼 액션
     @objc
     func randomImageButtonTapped(){
         pokemonInfoData()
+    }
+    
+    //"적용" 버튼 액션
+    @objc
+    func saveButtonTapped(){
+        if let name = updatePhoneBookView.inputName.text,
+           let phoneNumber = updatePhoneBookView.inputPhoneNumber.text,
+           let image = updatePhoneBookView.profileImage.image {
+            coreDataManager.createData(name: name, phoneNumber: phoneNumber, image: image)
+            self.navigationController?.popViewController(animated: true)
+//            print(coreDataManager.readAllData())
+        }
+        
     }
 }
