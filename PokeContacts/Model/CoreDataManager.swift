@@ -14,15 +14,19 @@ class CoreDataManager {
     var phoneBookView = PhoneBookView()
     
     init(){
+        // AppDelegate에서 persistentContainer 가져오기
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.container = appDelegate.persistentContainer
     }
     
     //MARK: -[Create] 코어데이터에 데이터 생성
     func createData(name: String, phoneNumber: String, image: UIImage) {
+        // PhoneBook 엔티티 생성
         guard let entity = NSEntityDescription.entity(forEntityName: PhoneBook.className, in: self.container.viewContext) else { return }
+        // UIImage를 Data 타입으로 변환
         guard let img = image.pngData() else { return } //이미지에서 data 타입으로 바꾸기
         let newPhoneBook = NSManagedObject(entity: entity, insertInto: self.container.viewContext)
+        // 엔티티 속성 설정
         newPhoneBook.setValue(name, forKey: PhoneBook.Key.name)
         newPhoneBook.setValue(phoneNumber, forKey: PhoneBook.Key.phoneNumber)
         newPhoneBook.setValue(img, forKey: PhoneBook.Key.image)
@@ -37,33 +41,42 @@ class CoreDataManager {
     
     //MARK: -[Read] 코어데이터에 저장된 데이터 모두 읽기
     func readAllData() -> [PhoneBook]? {
-        //사용자에게 입력받은 데이터를 저장할 배열
-//        var phoneBookList: [PhoneBook] = []
+        let fetchRequest: NSFetchRequest<PhoneBook> = NSFetchRequest<PhoneBook>(entityName: "PhoneBook")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
-//        do {
-            let phoneBooks = try? self.container.viewContext.fetch(PhoneBook.fetchRequest())
+        do {
+            let phoneBooks = try self.container.viewContext.fetch(fetchRequest)
             return phoneBooks
-//            for phoneBook in phoneBooks as [NSManagedObject] {
-//                // phoneNumber나 image의 타입이 Any로 간주되어 String 타입으로 변환할 수 없어 타입 캐스팅
-//                if let name = phoneBook.value(forKey: PhoneBook.Key.name) as? String,
-//                   let phoneNumber = phoneBook.value(forKey: PhoneBook.Key.phoneNumber) as? String,
-//                   let image = phoneBook.value(forKey: PhoneBook.Key.image) as? Data {
-//                    print("name: \(name), phoneNumber: \(phoneNumber), image: \(image)")
-//                    
-//                    // PhoneBook 객체를 만들어 배열에 추가
-//                    let newPhoneBook = PhoneBook(context: self.container.viewContext)
-//                    newPhoneBook.name = name
-//                    newPhoneBook.phoneNumber = phoneNumber
-//                    newPhoneBook.image = image
-//                    phoneBookList.append(newPhoneBook)
-//                    
-//                }
-//            }
-//        } catch {
-//            print("데이터 읽기 실패")
-//        }
-//        return phoneBookList
-//        print("반환값 테스트 : \(phoneBookList)")
+        } catch {
+            print("데이터 읽기 실패: \(error)")
+            return nil
+        }
+    }
+    
+    // MARK: - [Update] 코어데이터에 저장된 데이터 수정
+    func updateData(currentPhoneNumer: String, newName: String, newPhoneNumber: String, newImage: UIImage) {
+        // 현재 이름에 해당하는 데이터를 찾기 위한 fetch request 생성
+        let fetchRequest = PhoneBook.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "phoneNumber == %@", currentPhoneNumer)
+        
+        do {
+            // fetch request 실행
+            let result = try self.container.viewContext.fetch(fetchRequest)
+            
+            if let phoneBook = result.first {
+                // 데이터 수정
+                phoneBook.name = newName
+                phoneBook.phoneNumber = newPhoneNumber
+                phoneBook.image = newImage.pngData()
+                
+                // 변경 사항 저장
+                try self.container.viewContext.save()
+                print("데이터 수정 완료")
+            }
+        } catch {
+            print("데이터 수정 실패")
+        }
     }
     
 }

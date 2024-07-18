@@ -17,6 +17,7 @@ class PhoneBookViewController: UIViewController {
     
     //
     override func loadView() {
+        // PhoneBookView를 기본 뷰로 설정
         phoneBookView = PhoneBookView(frame: UIScreen.main.bounds)
         self.view = phoneBookView
     }
@@ -32,6 +33,7 @@ class PhoneBookViewController: UIViewController {
     //화면에 진입할 때마다 테이블뷰 리로드
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //phoneBookList를 가져올 때 이미 정렬된 상태
         phoneBookList = coreDataManager.readAllData() ?? [] //nil이면 빈배열
         phoneBookView.tableView.reloadData()
     }
@@ -80,15 +82,7 @@ extension PhoneBookViewController: UITableViewDataSource {
         cell.phoneNumber.text = phoneBook.phoneNumber
         cell.image.image = UIImage(data: phoneBook.image ?? Data())
         
-        //셀에 모델 전달
-        //        let coreData = coreDataManager.readAllData()
-        //        cell.data = phoneBookList[indexPath.row] //셀에 데이터를 전달
-        
-        //셀이 눌렸을 때 뷰컨에서 어떤 행동을 하기위해 클로저 전달
-        //        cell.  = { [weak self] (senderCell) in
-        //                self?performSegue(withIdentifier: "PhoneBookTableViewCell", sender: indexPath)
-        //        }
-        //        cell.selectionStyle = .none
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -97,7 +91,12 @@ extension PhoneBookViewController: UITableViewDataSource {
 extension PhoneBookViewController: UITableViewDelegate{
     //셀을 선택했을 때 다음 화면으로 이동
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "PhoneBookTableViewCell", sender: indexPath) //스토리보드에서 사용시
+        // 선택된 셀의 데이터를 UpdatePhoneBookViewCotroller로 전달하여 화면 전환
+        let selectedPhoneBook = phoneBookList[indexPath.row]
+        let updateVC = UpdatePhoneBookViewCotroller()
+        updateVC.phoneBook = selectedPhoneBook
+        self.navigationController?.pushViewController(updateVC, animated: true)
+        
     }
 }
 
