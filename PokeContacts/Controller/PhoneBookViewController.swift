@@ -96,7 +96,6 @@ extension PhoneBookViewController: UITableViewDelegate{
         let updateVC = UpdatePhoneBookViewCotroller()
         updateVC.phoneBook = selectedPhoneBook
         self.navigationController?.pushViewController(updateVC, animated: true)
-        
     }
 }
 

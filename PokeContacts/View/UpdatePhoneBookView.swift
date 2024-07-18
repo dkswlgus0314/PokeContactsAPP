@@ -120,7 +120,7 @@ extension UpdatePhoneBookView: UITextViewDelegate {
     // 2. 사용자가 텍스트 뷰에 입력을 마칠 때 호출되는 메서드
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty{
-            if textView.tag == 1 {
+            if textView.tag == 1 { 
                 textView.text = "이름을 입력하세요."
             } else if textView.tag == 2 {
                 textView.text = "전화번호를 입력하세요."

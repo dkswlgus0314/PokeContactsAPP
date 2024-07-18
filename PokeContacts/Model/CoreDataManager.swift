@@ -12,6 +12,7 @@ import CoreData
 class CoreDataManager {
     var container: NSPersistentContainer!
     var phoneBookView = PhoneBookView()
+
     
     init(){
         // AppDelegate에서 persistentContainer 가져오기
@@ -56,6 +57,7 @@ class CoreDataManager {
     
     // MARK: - [Update] 코어데이터에 저장된 데이터 수정
     func updateData(currentPhoneNumer: String, newName: String, newPhoneNumber: String, newImage: UIImage) {
+        print(#function)
         // 현재 이름에 해당하는 데이터를 찾기 위한 fetch request 생성
         let fetchRequest = PhoneBook.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "phoneNumber == %@", currentPhoneNumer)

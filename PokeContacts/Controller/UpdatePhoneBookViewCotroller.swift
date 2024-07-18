@@ -23,13 +23,15 @@ class UpdatePhoneBookViewCotroller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //네비게이션바 설정
-        title = "연락처 수정"
         navigationItem.rightBarButtonItem = saveButton
         
         updatePhoneBookView.randomImageButton.addTarget(self, action: #selector(randomImageButtonTapped), for: .touchDown)
+      
         if let phoneBook = phoneBook {
             // 전달받은 데이터를 뷰에 표시
+            title = "\(phoneBook.name!)"
             updatePhoneBookView.inputName.text = phoneBook.name
             updatePhoneBookView.inputPhoneNumber.text = phoneBook.phoneNumber
             if let imageData = phoneBook.image {
@@ -106,10 +108,20 @@ class UpdatePhoneBookViewCotroller: UIViewController {
         if let name = updatePhoneBookView.inputName.text,
            let phoneNumber = updatePhoneBookView.inputPhoneNumber.text,
            let image = updatePhoneBookView.profileImage.image {
-            coreDataManager.createData(name: name, phoneNumber: phoneNumber, image: image)
+            
+            if let phoneBook = phoneBook {
+                // 기존 데이터를 업데이트
+                coreDataManager.updateData(currentPhoneNumer: phoneBook.phoneNumber!, newName: name, newPhoneNumber: phoneNumber, newImage: image)
+            } else {
+                // 새로운 데이터를 생성
+                coreDataManager.createData(name: name, phoneNumber: phoneNumber, image: image)
+            }
+            
+            // 업데이트된 데이터가 올바르게 반영되도록 데이터 새로고침
+            phoneBookViewController?.phoneBookList = coreDataManager.readAllData() ?? []
+            phoneBookViewController?.phoneBookView.tableView.reloadData()
+            
             self.navigationController?.popViewController(animated: true)
-     
         }
-        
     }
 }
