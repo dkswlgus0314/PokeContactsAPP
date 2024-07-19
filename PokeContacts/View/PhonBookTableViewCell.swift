@@ -15,6 +15,7 @@ class PhonBookTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.layer.borderColor = UIColor.gray.cgColor
         image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
         image.layer.borderWidth = 1
         image.layer.cornerRadius = 30
         return image
