@@ -117,9 +117,10 @@ class UpdatePhoneBookViewCotroller: UIViewController {
                 coreDataManager.createData(name: name, phoneNumber: phoneNumber, image: image)
             }
             
-            // 업데이트된 데이터가 올바르게 반영되도록 데이터 새로고침
-            phoneBookViewController?.phoneBookList = coreDataManager.readAllData() ?? []
-            phoneBookViewController?.phoneBookView.tableView.reloadData()
+            // 업데이트된 데이터가 올바르게 반영되도록 데이터 새로고침 -> nil 작동 안하는 중
+//            phoneBookViewController?.phoneBookList = coreDataManager.readAllData() ?? []
+//            phoneBookViewController?.phoneBookView.tableView.reloadData()
+//            print(phoneBookViewController)
             
             self.navigationController?.popViewController(animated: true)
         }
