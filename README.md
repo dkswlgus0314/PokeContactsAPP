@@ -1,7 +1,7 @@
 # **👩🏻‍💻 PokeContacts**
 
-PokeContacts는 iOS용 간단한 연락처 앱 만들기 과제입니다. 
-이 앱은 UIKit을 활용한 화면 구성 및 화면 전환, URLSession를 통한 네트워크 통신, CoreData를 활용한 데이터 저장 기능을 포함합니다. 
+PokeContacts는 iOS용 간단한 연락처 앱 만들기 과제입니다. <br/>  
+UIKit을 활용한 화면 구성 및 화면 전환, URLSession를 통한 네트워크 통신, CoreData를 활용한 데이터 저장 기능을 포함합니다. 
 
 
 <br/> <br/> <br/> 
