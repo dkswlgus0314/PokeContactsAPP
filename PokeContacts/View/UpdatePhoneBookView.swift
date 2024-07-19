@@ -111,11 +111,18 @@ extension UpdatePhoneBookView: UITextViewDelegate {
     // 아래 함수들은 UITextViewDelegate 프로토콜에 포함된 메서드들
     // 1. 사용자가 텍스트 뷰에 입력을 시작할 때 호출되는 메서드
     func textViewDidBeginEditing(_ textView: UITextView) {
+        
         //텍스트 뷰의 현재 텍스트 색상이 플레이스홀더 텍스트 색상인지 확인
         guard textView.textColor == .systemGray4 else { return }
         //색상이 회색이라면 텍스트 뷰의 내용을 비우고, 텍스트 색상을 어두운 회색으로 변경하여 사용자가 입력할 준비
-        textView.text = nil
-        textView.textColor = .darkGray
+        if textView.text == "이름을 입력하세요." || textView.text == "전화번호를 입력하세요." {
+            textView.text = nil
+            textView.textColor = .darkGray
+        } else {
+            textView.textColor = .darkGray //사용자가 값을 입력된 상태 일 때
+        }
+        
+        
     }
     
     // 2. 사용자가 텍스트 뷰에 입력을 마칠 때 호출되는 메서드
@@ -127,7 +134,10 @@ extension UpdatePhoneBookView: UITextViewDelegate {
                 textView.text = "전화번호를 입력하세요."
             }
             //플레이스홀더 텍스트의 색상을 회색으로 변경
+            //            textView.textColor = .systemGray4   // 수정할때
             textView.textColor = .systemGray4
+            //        } else {
+            //            textView.textColor = .darkGray //수정할 때
         }
     }
 }

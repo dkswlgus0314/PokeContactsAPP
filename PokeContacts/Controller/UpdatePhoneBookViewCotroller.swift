@@ -34,6 +34,8 @@ class UpdatePhoneBookViewCotroller: UIViewController {
             title = "\(phoneBook.name!)"
             updatePhoneBookView.inputName.text = phoneBook.name
             updatePhoneBookView.inputPhoneNumber.text = phoneBook.phoneNumber
+            updatePhoneBookView.inputName.textColor = .darkGray
+            updatePhoneBookView.inputPhoneNumber.textColor = .darkGray
             if let imageData = phoneBook.image {
                 updatePhoneBookView.profileImage.image = UIImage(data: imageData)
             }
