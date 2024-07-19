@@ -12,7 +12,7 @@ import CoreData
 class CoreDataManager {
     var container: NSPersistentContainer!
     var phoneBookView = PhoneBookView()
-
+    
     
     init(){
         // AppDelegate에서 persistentContainer 가져오기
@@ -78,6 +78,32 @@ class CoreDataManager {
             }
         } catch {
             print("데이터 수정 실패")
+        }
+    }
+    
+    // MARK: - [Delete] 코어데이터에 저장된 데이터 삭제
+    func deleteData(phoneNumer: String) {
+        // 삭제할 데이터를 찾기 위한 fetch request 생성
+        let fetchRequest = PhoneBook.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "phoneNumber == %@", phoneNumer)
+        
+        do {
+            // fetch request 실행
+            let result = try self.container.viewContext.fetch(fetchRequest)
+            
+            // 결과 처리
+            for data in result as [NSManagedObject] {
+                // 삭제
+                self.container.viewContext.delete(data)
+                print("삭제된 데이터: \(data)")
+            }
+            
+            // 변경 사항 저장
+            try self.container.viewContext.save()
+            print("데이터 삭제 완료")
+            
+        } catch {
+            print("데이터 삭제 실패: \(error)")
         }
     }
     
