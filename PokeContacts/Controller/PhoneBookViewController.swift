@@ -86,8 +86,7 @@ extension PhoneBookViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
-    //MARK: -<#구역이름#>
-    //셀을 선택했을 때 다음 화면으로 이동
+    //MARK: -셀을 선택했을 때 다음 화면으로 이동
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 선택된 셀의 데이터를 UpdatePhoneBookViewCotroller로 전달하여 화면 전환
         let selectedPhoneBook = phoneBookList[indexPath.row]
