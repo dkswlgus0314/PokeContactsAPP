@@ -10,8 +10,7 @@ UIKit을 활용한 화면 구성 및 화면 전환, URLSession를 통한 네트�
 ### 실행 모습
 
 ---
-![Simulator Screen Recording - iPhone 15 Pro - 2024-07-19 at 11 54 33](https://github.com/user-attachments/assets/f2680427-e435-468c-bd70-6f9137735dde)
-
+![Simulator Screen Recording - iPhone 15 Pro - 2024-07-19 at 14 50 11](https://github.com/user-attachments/assets/8f7e1e2d-8a2a-47c0-b14f-c826d9548ada)
 
 <br/> <br/> <br/> 
 
